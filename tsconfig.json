@@ -6,7 +6,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "rootDir": "./src",
     "outFile": "./app.js",
+    "ignoreDeprecations": "6.0",
     "sourceMap": false,
     "removeComments": false
   },

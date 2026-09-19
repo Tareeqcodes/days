@@ -253,15 +253,7 @@ async function copyResult() {
         await navigator.clipboard.writeText(sentence);
     }
     catch {
-        const ta = document.createElement('textarea');
-        ta.value = sentence;
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-            document.execCommand('copy');
-        }
-        catch { /* ignore */ }
-        document.body.removeChild(ta);
+        return;
     }
     const def = els.copyBtn.querySelector('.copy-default');
     const done = els.copyBtn.querySelector('.copy-done');

@@ -271,12 +271,7 @@ async function copyResult(): Promise<void> {
   try {
     await navigator.clipboard.writeText(sentence);
   } catch {
-    const ta = document.createElement('textarea');
-    ta.value = sentence;
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch { /* ignore */ }
-    document.body.removeChild(ta);
+    window.prompt('Copy this text:', sentence);
   }
   const def = els.copyBtn.querySelector<HTMLElement>('.copy-default')!;
   const done = els.copyBtn.querySelector<HTMLElement>('.copy-done')!;
