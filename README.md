@@ -1,5 +1,14 @@
 # Days Alive
 
+> **How to run:** clone, then serve the folder and open it in a browser:
+> ```bash
+> git clone https://github.com/Tareeqcodes/days.git
+> cd days
+> python3 -m http.server 8099   # then open http://localhost:8099
+> ```
+> No build step needed to view — `app.js` is already compiled. (See
+> [Editing the logic](#editing-the-logic) to recompile the TypeScript.)
+
 A single-screen "Days Alive" calculator. Enter your birth date and the form
 flips to a result view showing how many days you've been alive (with a live
 seconds ticker), your age, weeks and hours lived, share of an 80-year lifespan,
@@ -37,8 +46,8 @@ Use `npm run watch` to recompile automatically while editing.
 ## Files
 
 - `index.html` — markup (semantic, SEO + Open Graph tags)
-- `styles.css` — styling, light/dark themes, responsive layout
-- `src/main.ts` — TypeScript source (calculation, animation, countdown, storage)
+- `styles.css` — warm cream/terracotta styling, responsive layout
+- `src/main.ts` — TypeScript source (calculation, live ticker, storage)
 - `app.js` — compiled output loaded by the page (don't edit by hand)
 
 ## Features
