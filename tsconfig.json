@@ -1,21 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "none",
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "rootDir": "./src",
-    "outFile": "./app.js",
-    "sourceMap": false,
-    "removeComments": false
+    "sourceMap": false
   },
-  "include": [
-    "src/main.ts"
-  ]
+  "include": ["app.ts"]
 }

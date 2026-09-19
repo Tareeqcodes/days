@@ -33,12 +33,12 @@ Try `?dob=2002-06-12` on the URL to pre-fill and auto-calculate.
 
 ## Editing the logic
 
-The logic is written in **TypeScript** (`src/main.ts`) and compiled to `app.js`,
+The logic is written in **TypeScript** (`app.ts`) and compiled to `app.js`,
 which is what the page loads. After changing the `.ts` file, recompile:
 
 ```bash
 npm install   # first time only — installs the TypeScript compiler
-npm run build # compiles src/main.ts -> app.js
+npm run build # compiles app.ts -> app.js
 ```
 
 Use `npm run watch` to recompile automatically while editing.
@@ -47,7 +47,7 @@ Use `npm run watch` to recompile automatically while editing.
 
 - `index.html` — markup (semantic, SEO + Open Graph tags)
 - `styles.css` — warm cream/terracotta styling, responsive layout
-- `src/main.ts` — TypeScript source (calculation, live ticker, storage)
+- `app.ts` — TypeScript source (calculation, live ticker, storage)
 - `app.js` — compiled output loaded by the page (don't edit by hand)
 
 ## Features

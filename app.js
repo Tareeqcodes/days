@@ -1,6 +1,6 @@
 "use strict";
 /* =====================================================================
-   Days Alive — logic (TypeScript). Compiled to ../app.js.
+   Days Alive — logic (TypeScript). Compiled to app.js (run `npm run build`).
    Single-screen: a form flips to a results view. No time-of-birth.
    ===================================================================== */
 const LIFESPAN_YEARS = 80;
