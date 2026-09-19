@@ -253,7 +253,7 @@ async function copyResult() {
         await navigator.clipboard.writeText(sentence);
     }
     catch {
-        return;
+        window.prompt('Copy this text:', sentence);
     }
     const def = els.copyBtn.querySelector('.copy-default');
     const done = els.copyBtn.querySelector('.copy-done');
