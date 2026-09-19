@@ -1,0 +1,13 @@
+{
+  "name": "days-alive",
+  "version": "1.0.0",
+  "description": "A single-page Days Alive calculator with live milestone countdown.",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

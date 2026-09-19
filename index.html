@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Days Alive</title>
+  <meta name="description" content="Enter your birth date and see how many days you've been alive, your age, weeks and hours lived, and what milestones are coming up." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Days Alive" />
+  <meta property="og:description" content="Count every single day you've been alive." />
+  <meta property="og:image" content="og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <!-- Brand -->
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 9h18"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg>
+      <span class="brand-name">Days Alive</span>
+    </div>
+
+    <!-- Form view -->
+    <section id="formView">
+      <h1 class="title">How many days have you been alive?</h1>
+      <p class="lede">Enter your birth date and we'll count every single day since.</p>
+
+      <form id="calcForm" novalidate>
+        <div class="field">
+          <label for="bdate">Birth date</label>
+          <input class="input" id="bdate" name="bdate" type="date" autocomplete="bday" required />
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+      </form>
+    </section>
+
+    <!-- Result view -->
+    <section id="resultView" aria-live="polite" hidden>
+      <button type="button" id="resetBtn" class="btn btn-ghost back-btn">&larr; New date</button>
+
+      <div class="hero">
+        <div class="hero-num" id="totalDays">0</div>
+        <div class="hero-label">days alive</div>
+      </div>
+
+      <p class="ticker" id="ticker" hidden></p>
+      <p class="born" id="born"></p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-kicker">Age</div>
+          <div class="card-title" id="age">—</div>
+        </div>
+        <div class="card">
+          <div class="card-kicker">Weeks lived</div>
+          <div class="card-title" id="weeks">—</div>
+        </div>
+        <div class="card">
+          <div class="card-kicker">Hours lived</div>
+          <div class="card-title" id="hours">—</div>
+        </div>
+        <div class="card">
+          <div class="card-kicker">Of a lifespan</div>
+          <div class="card-title" id="pct">—</div>
+          <p class="card-body tiny" id="pctNote">assumes 80 years</p>
+        </div>
+      </div>
+
+      <div class="coming">
+        <h2 class="coming-title">Just for fun</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card-kicker">💓 Heartbeats</div>
+            <div class="card-title" id="beats">—</div>
+          </div>
+          <div class="card">
+            <div class="card-kicker">😴 Time asleep</div>
+            <div class="card-title" id="asleep">—</div>
+          </div>
+          <div class="card">
+            <div class="card-kicker">🌍 Around the sun</div>
+            <div class="card-title" id="sun">—</div>
+          </div>
+          <div class="card">
+            <div class="card-kicker">🚽 Toilet time</div>
+            <div class="card-title" id="toilet">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coming">
+        <h2 class="coming-title">What's coming up</h2>
+        <div class="upcoming">
+          <!-- Next round number -->
+          <div class="card row elev-sm">
+            <span class="ico ico-green" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-accent-2-700)"><path d="M12 3l2.2 5.6L20 11l-5.8 2.4L12 19l-2.2-5.6L4 11l5.8-2.4L12 3z"></path></svg></span>
+            <div class="row-text">
+              <div class="card-title sm" id="roundNum">—</div>
+              <div class="card-body row-sub" id="roundSub">—</div>
+            </div>
+          </div>
+
+          <!-- Next birthday -->
+          <div class="card row elev-sm">
+            <span class="ico ico-orange" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="1.5"></rect><path d="M12 9v11"></path><path d="M8 9c-1.8 0-3-1.2-3-3s1.2-3 3-3c2 0 4 3 4 6"></path><path d="M16 9c1.8 0 3-1.2 3-3s-1.2-3-3-3c-2 0-4 3-4 6"></path></svg></span>
+            <div class="row-text">
+              <div class="card-title sm" id="bdayNum">—</div>
+              <div class="card-body row-sub" id="bdaySub">—</div>
+            </div>
+          </div>
+
+          <!-- Golden birthday -->
+          <div class="card row elev-sm">
+            <span class="ico ico-green" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="6"></circle><path d="M9 10L7 3M15 10l2-7"></path></svg></span>
+            <div class="row-text">
+              <div class="card-title sm" id="goldNum">—</div>
+              <div class="card-body row-sub" id="goldSub">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="copyBtn" class="btn btn-secondary btn-block copy-btn">
+        <span class="copy-default">Copy result</span>
+        <span class="copy-done" hidden>Copied &check;</span>
+      </button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
